@@ -1,0 +1,12 @@
+{
+    "name": "porty/art-nlp",
+    "authors": [
+        {
+            "name": "arty",
+            "email": "2816869721@qq.com"
+        }
+    ],
+    "require": {
+        "swoole/ide-helper": "@dev"
+    }
+}
