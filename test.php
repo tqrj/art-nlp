@@ -1,6 +1,6 @@
 <?php
-Co\run(function (){
-    $client = new Swoole\Coroutine\Http\Client('https://www.baidu.com/', 80);
+Co\run(function () {
+    $client = new Swoole\Coroutine\Http\Client('https://wiki.swoole.com/#/coroutine_client/http_client', 80);
     $client->setHeaders([
         'Host' => 'localhost',
         'User-Agent' => 'Chrome/49.0.2587.3',
