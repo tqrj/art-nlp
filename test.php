@@ -1,4 +1,6 @@
 <?php
+Co::set(['hook_flags'=> SWOOLE_HOOK_ALL]);
+
 Co\run(function () {
     $client = new Swoole\Coroutine\Http\Client('https://wiki.swoole.com/#/coroutine_client/http_client', 80);
     $client->setHeaders([
