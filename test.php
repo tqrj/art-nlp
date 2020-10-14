@@ -2,7 +2,7 @@
 Co::set(['hook_flags'=> SWOOLE_HOOK_ALL]);
 
 Co\run(function () {
-    $client = new Swoole\Coroutine\Http\Client('https://wiki.swoole.com/#/coroutine_client/http_client', 80);
+    $client = new Swoole\Coroutine\Http\Client('wiki.swoole.com', 80);
     $client->setHeaders([
         'Host' => 'localhost',
         'User-Agent' => 'Chrome/49.0.2587.3',
