@@ -2,9 +2,14 @@
 Co::set(['hook_flags'=> SWOOLE_HOOK_ALL]);
 
 Co\run(function () {
-    $client = new Swoole\Coroutine\Http\Client('wiki.swoole.com', 80);
-    $client->set(['timeout' => 1]);
-    $client->get('/');
-    echo $client->body;
-    $client->close();
+    $config =[
+        'outTime'=>1
+        ,'baidu'=>[
+            'client_secret'=>'Rgzet1AGVoXZWpKhLvrhPnw88YO5cEu1'
+            ,'client_id'=>'01YwOC1j83a5TgKIzFMAP1cI'
+        ]
+        ,'tencent'=>[]
+    ];
+    $baidu = new nlp\baidu($config);
+    $baidu->auth();
 });

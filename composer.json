@@ -6,6 +6,11 @@
             "email": "2816869721@qq.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "nlp\\": "nlp"
+        }
+    },
     "require": {
         "swoole/ide-helper": "@dev"
     }
