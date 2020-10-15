@@ -5,8 +5,9 @@ namespace nlp;
 
 interface NlpInterface
 {
+
     public function auth();
 
-    public function lexer();
+    public function lexer($text);
 
 }

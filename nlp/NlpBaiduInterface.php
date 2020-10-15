@@ -6,6 +6,8 @@ namespace nlp;
 
 interface NlpBaiduInterface
 {
-    public function dnnlmCn();
+    const BaiduDomain = '';
+
+    public function dnnlmCn($text);
 
 }
