@@ -58,6 +58,7 @@ class Baidu implements NlpInterface,NlpBaiduInterface
         // TODO: Implement dnnlmCn() method.
         $data['access_token'] = $this->config['baidu']['access_token'];
         $data['text'] = $text;
+        $data = json_encode($data);
         $client = new Client(self::BaiduDomain,80);
         $client->post('/rpc/2.0/nlp/v2/dnnlm_cn',$data);
         return json_decode($client->getBody(),true);
