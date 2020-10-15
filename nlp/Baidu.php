@@ -8,8 +8,9 @@ class Baidu implements NlpInterface,NlpBaiduInterface
     var $config =[
         'outTime'=>1
         ,'baidu'=>[
-            'client_secret'=>''
-            ,'client_id'=>''
+            'client_secret'=>'',
+            'client_id'=>'',
+            'access_token'=>''
         ]
         ,'tencent'=>[]
     ];
