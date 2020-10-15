@@ -5,7 +5,6 @@ use Swoole\Coroutine\Http\Client;
 
 class Baidu implements NlpInterface,NlpBaiduInterface
 {
-    const BaiduDomain = 'aip.baidubce.com';
     var $config =[
         'outTime'=>1
         ,'baidu'=>[
