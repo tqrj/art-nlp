@@ -15,5 +15,5 @@ Co\run(function () {
     ];
     $baidu = new \nlp\Baidu($config);
     echo $baidu->auth().PHP_EOL;
-    print_r($baidu->dnnlmCn('i miss you'));
+    print_r($baidu->dnnlmCn('我想你了'));
 });
