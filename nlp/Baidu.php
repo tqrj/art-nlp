@@ -60,7 +60,7 @@ class Baidu implements NlpInterface,NlpBaiduInterface
         $data['text'] = $text;
         $data = json_encode($data);
         echo $data;
-        $client = new Client(self::BaiduDomain,80,true);
+        $client = new Client(self::BaiduDomain,443,true);
         $client->setHeaders([
             'Content-Type'=>'application/json',
         ]);
