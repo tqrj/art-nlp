@@ -1,4 +1,6 @@
 <?php
+require 'vendor\autoload.php';
+
 Co::set(['hook_flags'=> SWOOLE_HOOK_ALL]);
 
 Co\run(function () {
