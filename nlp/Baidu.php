@@ -30,7 +30,7 @@ class Baidu implements NlpInterface,NlpBaiduInterface
             $client = new Client('aip.baidubce.com',80);
             $client->set(['timeout'=>$this->config['outTime']]);
             $client->post('/oauth/2.0/token',$data);
-            echo $client->getBody();
+            $body = $client->getBody();
             $client->close();
         });
         return json_decode($body,true)['access_token'];

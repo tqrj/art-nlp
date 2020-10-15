@@ -13,5 +13,6 @@ Co\run(function () {
         ,'tencent'=>[]
     ];
     $baidu = new \nlp\Baidu($config);
-    $baidu->auth();
+    echo $baidu->auth();
+    echo $baidu->auth();
 });
