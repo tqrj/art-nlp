@@ -4,7 +4,7 @@ namespace nlp;
 use Swoole\Coroutine\Http\Client;
 use function Co\run;
 
-class baidu implements NlpInterface,NlpBaiduInterface
+class Baidu implements NlpInterface,NlpBaiduInterface
 {
     var $config =[
         'outTime'=>1
