@@ -22,7 +22,8 @@ class Baidu implements NlpInterface,NlpBaiduInterface
     public function auth()
     {
         // TODO: Implement GetAccessToken() method.
-        go(function (){
+        $body = '';
+        go(function () use (&$body){
             $data['client_secret'] = $this->config['baidu']['client_secret'];
             $data['client_id'] = $this->config['baidu']['client_id'];
             $data['grant_type'] = 'client_credentials';
@@ -31,9 +32,8 @@ class Baidu implements NlpInterface,NlpBaiduInterface
             $client->post('/oauth/2.0/token',$data);
             echo $client->getBody();
             $client->close();
-
         });
-
+        return json_decode($body,true)['access_token'];
     }
 
     public function lexer()
