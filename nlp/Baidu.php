@@ -2,7 +2,6 @@
 namespace nlp;
 
 use Swoole\Coroutine\Http\Client;
-use function Co\run;
 
 class Baidu implements NlpInterface,NlpBaiduInterface
 {
@@ -23,7 +22,7 @@ class Baidu implements NlpInterface,NlpBaiduInterface
     public function auth()
     {
         // TODO: Implement GetAccessToken() method.
-        run(function (){
+        go(function (){
             $data['client_secret'] = $this->config['baidu']['client_secret'];
             $data['client_id'] = $this->config['baidu']['client_id'];
             $data['grant_type'] = 'client_credentials';
