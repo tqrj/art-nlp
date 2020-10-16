@@ -20,10 +20,19 @@ class Baidu implements NlpInterface,NlpBaiduInterface
         $this->config = $config;
     }
 
+    /**
+     * 格式化结果
+     * @param $content string
+     * @return mixed
+     */
+    protected function proccessResult($content)
+    {
+        return json_decode(mb_convert_encoding($content, 'UTF8', 'GBK'), true, 512, JSON_BIGINT_AS_STRING);
+    }
+
     public function auth()
     {
         // TODO: Implement GetAccessToken() method.
-        $body = '';
 //        go(function () use (&$body){
 //
 //        });
@@ -42,11 +51,11 @@ class Baidu implements NlpInterface,NlpBaiduInterface
     public function lexer($text)
     {
         // TODO: Implement lexer() method.
-        $data['access_token'] = $this->config['baidu']['access_token'];
         $data['text'] = $text;
-        $client = new Client(self::BaiduDomain,80);
-        $client->post('/rpc/2.0/nlp/v1/lexer',$data);
-        return json_decode($client->getBody(),true);
+        $data = mb_convert_encoding(json_encode($data), 'GBK', 'UTF8');
+        $client = new Client(self::BaiduDomain,443,true);
+        $client->post('/rpc/2.0/nlp/v1/lexer?access_token='.$this->config['baidu']['access_token'],$data);
+        return $this->proccessResult($client->getBody());
     }
 
     /**
@@ -63,12 +72,47 @@ class Baidu implements NlpInterface,NlpBaiduInterface
         return $this->proccessResult($client->getBody());
     }
 
-    /**
-     * 格式化结果
-     * @param $content string
-     * @return mixed
-     */
-    protected function proccessResult($content){
-        return json_decode(mb_convert_encoding($content, 'UTF8', 'GBK'), true, 512, JSON_BIGINT_AS_STRING);
+
+    public function keyword($title,$text)
+    {
+        // TODO: Implement keyword() method.
+        $data['title'] = $title;
+        $data['text'] = $text;
+        $data = mb_check_encoding(json_encode($data),'GBK','UTF8');
+        $client = new Client(self::BaiduDomain,443,true);
+        $client->post('/rpc/2.0/nlp/v1/keyword',$data);
+        return $this->proccessResult($client->getBody());
+    }
+
+    public function topic($title,$text)
+    {
+        // TODO: Implement topic() method.
+        $data['title'] = $title;
+        $data['text'] = $text;
+        $data = mb_check_encoding(json_encode($data),'GBK','UTF8');
+        $client = new Client(self::BaiduDomain,443,true);
+        $client->post('/rpc/2.0/nlp/v1/topic',$data);
+        return $this->proccessResult($client->getBody());
+    }
+
+    public function ecnet($text)
+    {
+        // TODO: Implement ecnet() method.
+        $data['text'] = $text;
+        $data = mb_check_encoding(json_encode($data),'GBK','UTF8');
+        $client = new Client(self::BaiduDomain,443,true);
+        $client->post('/rpc/2.0/nlp/v1/ecnet',$data);
+        return $this->proccessResult($client->getBody());
+    }
+
+    public function summary($title,$text)
+    {
+        // TODO: Implement summary() method.
+        $data['title'] = $title;
+        $data['text'] = $text;
+        $data = mb_check_encoding(json_encode($data),'GBK','UTF8');
+        $client = new Client(self::BaiduDomain,443,true);
+        $client->post('/rpc/2.0/nlp/v1/news_summary',$data);
+        return $this->proccessResult($client->getBody());
     }
 }
