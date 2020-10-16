@@ -53,7 +53,7 @@ class Baidu implements NlpInterface,NlpBaiduInterface
      * @param string $text 文本内容，最大256字节，不需要切词
      * @return mixed
      */
-    public function dnnlmCn($text)
+    public function dnnlmCn($text):array
     {
         // TODO: Implement dnnlmCn() method.
         $data['text'] =$text;
