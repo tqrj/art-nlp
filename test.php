@@ -16,5 +16,5 @@ Co\run(function () {
     $baidu = new \nlp\Baidu($config);
     echo $baidu->auth().PHP_EOL;
     print_r($baidu->keyword('我想你了','我真q好想你，每天都会想起你，好想每天早上第一眼见到的就是你'));
-    print_r($baidu->ecnet('我真q好想你，每天都会想起你，好想每天早上第一眼见到的就是你'));
+    print_r($baidu->ecnet('我针好想你，每天都会想起你，好想每天早上第一眼见到的就是你'));
 });
