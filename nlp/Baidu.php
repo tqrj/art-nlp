@@ -77,7 +77,7 @@ class Baidu implements NlpInterface,NlpBaiduInterface
     {
         // TODO: Implement keyword() method.
         $data['title'] = $title;
-        $data['text'] = $text;
+        $data['content'] = $text;
         $data = mb_convert_encoding(json_encode($data),'GBK','UTF8');
         $client = new Client(self::BaiduDomain,443,true);
         $client->post('/rpc/2.0/nlp/v1/keyword',$data);
@@ -88,7 +88,7 @@ class Baidu implements NlpInterface,NlpBaiduInterface
     {
         // TODO: Implement topic() method.
         $data['title'] = $title;
-        $data['text'] = $text;
+        $data['content'] = $text;
         $data = mb_convert_encoding(json_encode($data),'GBK','UTF8');
         $client = new Client(self::BaiduDomain,443,true);
         $client->post('/rpc/2.0/nlp/v1/topic',$data);
