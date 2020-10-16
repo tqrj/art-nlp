@@ -53,13 +53,13 @@ class Baidu implements NlpInterface,NlpBaiduInterface
      * @param string $text 文本内容，最大256字节，不需要切词
      * @return mixed
      */
-    public function dnnlmCn($text):array
+    public function dnnlmCn($text)
     {
         // TODO: Implement dnnlmCn() method.
         $data['text'] =$text;
         $data = mb_convert_encoding(json_encode($data), 'GBK', 'UTF8');
         $client = new Client(self::BaiduDomain,443,true);
         $client->post('/rpc/2.0/nlp/v2/dnnlm_cn?access_token='.$this->config['baidu']['access_token'],$data);
-        return json_decode($client->getBody(),true);
+        return $client->getBody();
     }
 }
