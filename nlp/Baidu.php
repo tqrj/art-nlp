@@ -80,7 +80,7 @@ class Baidu implements NlpInterface,NlpBaiduInterface
         $data['content'] = $text;
         $data = mb_convert_encoding(json_encode($data),'GBK','UTF8');
         $client = new Client(self::BaiduDomain,443,true);
-        $client->post('/rpc/2.0/nlp/v1/keyword',$data);
+        $client->post('/rpc/2.0/nlp/v1/keyword?access_token='.$this->config['baidu']['access_token'],$data);
         return $this->proccessResult($client->getBody());
     }
 
