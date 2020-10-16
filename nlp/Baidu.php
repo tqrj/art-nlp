@@ -60,6 +60,15 @@ class Baidu implements NlpInterface,NlpBaiduInterface
         $data = mb_convert_encoding(json_encode($data), 'GBK', 'UTF8');
         $client = new Client(self::BaiduDomain,443,true);
         $client->post('/rpc/2.0/nlp/v2/dnnlm_cn?access_token='.$this->config['baidu']['access_token'],$data);
-        return $client->getBody();
+        return $this->proccessResult($client->getBody());
+    }
+
+    /**
+     * 格式化结果
+     * @param $content string
+     * @return mixed
+     */
+    protected function proccessResult($content){
+        return json_decode(mb_convert_encoding($content, 'UTF8', 'GBK'), true, 512, JSON_BIGINT_AS_STRING);
     }
 }
