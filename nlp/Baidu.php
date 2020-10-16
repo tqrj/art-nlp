@@ -91,7 +91,7 @@ class Baidu implements NlpInterface,NlpBaiduInterface
         $data['content'] = $text;
         $data = mb_convert_encoding(json_encode($data),'GBK','UTF8');
         $client = new Client(self::BaiduDomain,443,true);
-        $client->post('/rpc/2.0/nlp/v1/topic',$data);
+        $client->post('/rpc/2.0/nlp/v1/topic?access_token='.$this->config['baidu']['access_token'],$data);
         return $this->proccessResult($client->getBody());
     }
 
@@ -101,7 +101,7 @@ class Baidu implements NlpInterface,NlpBaiduInterface
         $data['text'] = $text;
         $data = mb_convert_encoding(json_encode($data),'GBK','UTF8');
         $client = new Client(self::BaiduDomain,443,true);
-        $client->post('/rpc/2.0/nlp/v1/ecnet',$data);
+        $client->post('/rpc/2.0/nlp/v1/ecnet?access_token='.$this->config['baidu']['access_token'],$data);
         return $this->proccessResult($client->getBody());
     }
 
@@ -112,7 +112,7 @@ class Baidu implements NlpInterface,NlpBaiduInterface
         $data['text'] = $text;
         $data = mb_convert_encoding(json_encode($data),'GBK','UTF8');
         $client = new Client(self::BaiduDomain,443,true);
-        $client->post('/rpc/2.0/nlp/v1/news_summary',$data);
+        $client->post('/rpc/2.0/nlp/v1/news_summary?access_token='.$this->config['baidu']['access_token'],$data);
         return $this->proccessResult($client->getBody());
     }
 }
